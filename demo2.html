@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>编写第一个react程序</title>
+    <script src="bower_components/react/react.min.js"></script>
+    <script src ="bower_components/react/JSXTransformer.js"></script>
+    <style>
+        .test{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+</body>
+<script type="text/jsx">
+
+    var HelloMessage = React.createClass({
+        render:function(){
+            return <div className="test">Hello {this.props.name+
+                function(){
+                    return 'abc'
+                }()
+            }<Longlong /></div>
+        }
+    })
+
+    var Longlong = React.createClass({
+        render:function(){
+            return <h1>22222</h1>
+        }
+    })
+    React.render(<HelloMessage name = 'longlong'/>,document.getElementById('example'))
+</script>
+
+</html>

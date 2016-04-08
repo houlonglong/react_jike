@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>注释</title>
+    <script src="bower_components/react/react.min.js"></script>
+    <script src ="bower_components/react/JSXTransformer.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+</body>
+<script type="text/jsx">
+
+    var HelloMessage = React.createClass({
+        render:function(){
+            return <div
+                    /*
+                    属性注释
+                    */
+                    name="test"
+                    >Hello World{
+                    /*
+
+
+                    多长注释
+                     */
+                'longlong'
+                //单行注释
+            }</div>
+        }
+    })
+
+
+    React.render(<HelloMessage />,document.getElementById('example'))
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌套语句</title>
+    <script src="bower_components/react/react.min.js"></script>
+    <script src ="bower_components/react/JSXTransformer.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+</body>
+<script type="text/jsx">
+    var style = {
+        color:'red',
+        border:'1px #000 solid'
+    }
+
+    var HelloMessage = React.createClass({
+      /*  函数表达式取值
+      getName : function(){
+            if(this.props.name){
+                return  this.props.name
+            }else {
+                return 'world'
+            }
+        },*/
+        render:function(){
+            return <div>{
+                (function(obj){
+                    console.log(obj)
+                    if(obj.props.name){
+                        return obj.props.name
+                    }else{
+                        return '龙龙'
+                    }
+                })(this)
+            }</div>
+                /* 逻辑运算
+                <div>{this.props.name || '龙龙'}</div>
+               */
+                /* 函数表达
+             <div>{name}</div>
+                 */
+                // 三元表达式
+                // <div style={style}>你好,{this.props.name ? this.props.name : '龙龙'}</div>
+        }
+    })
+
+
+    React.render(<HelloMessage name="222"  />,document.getElementById('example'))
+</script>
+
+</html>

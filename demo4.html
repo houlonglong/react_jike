@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>样式</title>
+    <script src="bower_components/react/react.min.js"></script>
+    <script src ="bower_components/react/JSXTransformer.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="example"></div>
+
+</body>
+<script type="text/jsx">
+    var style = {
+        color:'red',
+        border:'1px #000 solid'
+    }
+    var HelloMessage = React.createClass({
+        render:function(){
+            return <div style={style}>你好,longlong</div>
+        }
+    })
+
+
+    React.render(<HelloMessage />,document.getElementById('example'))
+</script>
+
+</html>

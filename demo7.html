@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello, World</title>
+</head>
+<body>
+
+<script src="bower_components/react/react.min.js"></script>
+<script src="bower_components/react/JSXTransformer.js"></script>
+<script type="text/jsx">
+    var count = 0;
+var Helloworld = React.createClass({
+    getDefaultProps:function(){
+        console.log('getDefaultProps 1')
+        return {
+            name:'tom',
+            age:19
+        }
+    },
+    getInitialState:function(){
+        console.log('getInitialState 2')
+        return {
+            myCount:count++,
+            ready:false
+
+        }
+    },
+    componentWillMount:function(){
+        console.log('componentWillMount 3')
+        this.setState({ready:true})
+    },
+
+    render:function(){
+        console.log('render 4')
+        console.log(this.state.ready)
+        return <div>{this.props.name || this.props.age }<br/>
+                    {'' +this.state.ready}{this.state.myCount}
+               </div>
+    },
+    componentDidMount:function(){
+        console.log('componentDidMount 5')
+        console.log(React.findDOMNode(this))
+        React.findDOMNode(this).innerHTML += '大撒的撒'
+    }
+})
+    React.render(<div ><Helloworld /><Helloworld /><Helloworld /></div>,document.body)
+</script>
+
+</body>
+</html>
